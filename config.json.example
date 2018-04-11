@@ -1,0 +1,15 @@
+{
+    "host"              :   "{imap.gmail.com:993/imap/ssl}INBOX",
+"   email"              :   "example@gmail.com",
+    "password"          :   "example",
+    "dateFormat"        :   "d/m/Y",
+    "maxEmails"         :   50,
+    "shown"             :   20,
+    "mark_completed"    :   "Mark as completed",
+    "mark_uncompleted"  :   "Mark as uncompleted",
+    "show_all"          :   "Show all",
+    "show_uncompleted"  :   "Show unseen",
+    "return_link"       :   "test_link",
+    "return"            :   "Return"
+
+}
