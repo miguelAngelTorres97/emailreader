@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav">
                         <li class="active nav-item">
-                            <a class="nav-link mr-4" href="{{$url . ($unseen ? '' : 'unseen')}}">
+                            <a class="nav-link mr-4 max-45" href="{{$url . ($unseen ? '' : 'unseen')}}">
                                 {{$unseen ? $labels['show_all'] : $labels['show_unseen']}}
                                 <div class="ripple-container"></div></a>
                         </li>
@@ -43,7 +43,7 @@
                     @if(!isset($_GET['hide']))
                     <form class="form-inline ml-auto" method="GET" action="{{$url}}" >
                         <div class="form-group has-white bmd-form-group">
-                            <input type="text" name='q' class="form-control" placeholder="Search" value="<?php echo isset($_GET['q']) ? $_GET['q'] : '' ;?>" >
+                            <input type="text" name='q' class="form-control" placeholder="Search" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}" >
                         </div>
                         <button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
                             <i class="material-icons">search</i>
@@ -61,7 +61,7 @@
                     </form>
                     @endif
 
-                    <button class="btn btn-secondary ml-4" href="{{$return_link}}">{{$labels['return']}}</button>
+                    <a class="btn btn-secondary ml-4" href="{{$return_link}}">{{$labels['return']}}</a>
                 </div>
             </div>
         </nav>
@@ -75,7 +75,7 @@
                                 <div class="nav-tabs-wrapper mail-fields" >
                                     <div class="row">
 
-                                        <div class="mail-field-sm tx-center mx-2">
+                                        <div class="mail-field-sm tx-center mx-2 ml-4">
                                             <i class="material-icons seen">{{$email->getSeen() ? "done" : "email"}}</i>
                                         </div>
                                         <div class="mail-field-md ml-4">
@@ -99,7 +99,7 @@
                             <div class="tab-content mail-msg">
                                 <div class="tab-pane active" id="profile">
 
-                                    <p><?php echo $email->getMessage();?></p>
+                                    <pre style="white-space:pre-line"><?php echo $email->getMessage();?></pre>
 
                                     <div class="center text-center">
                                         <button class='btn bg-primary complete' data-emailId="{{$email->getId()}}" data-readed="{{$email->getSeen()}}" >

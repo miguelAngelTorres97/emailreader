@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use \DateTime;
-use App\Config;
 
 class Email extends Model
 {
@@ -20,7 +19,7 @@ class Email extends Model
         $this->mailDate = new DateTime($overview->date);
         $this->mailDate = $this->mailDate->format( Config::$dateFormat );
 
-        $this->message = imap_fetchbody($con,$email_number,1.1, FT_PEEK); 
+        $this->message = imap_fetchbody($con,$email_number,1.2, FT_PEEK);
         if(empty($this->message)) $this->message = imap_fetchbody($con,$email_number,1, FT_PEEK);
         
         
@@ -32,12 +31,12 @@ class Email extends Model
             $this->message = $this->decode($this->message, $encoding);
             
             //$this->message = $this->to_utf8($this->message);
-            $this->message = preg_replace('/\s+/', ' ', $this->message);
+            //$this->message = preg_replace('/\s+/', ' ', $this->message);
         }else
             $this->message = quoted_printable_decode($this->message);
-        
-        $this->message = strip_tags($this->message, '');
-        $this->message = nl2br($this->message);
+
+        //$this->message = strip_tags($this->message, '');
+        //$this->message = nl2br($this->message);
     }
 
     public function getId(){

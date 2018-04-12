@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Config;
 
 class EmailReader extends Model
 {
@@ -37,7 +36,7 @@ class EmailReader extends Model
         $this->queryFrom = isset($_GET['from']) ? $_GET['from'] : '';
         $this->querySearch = isset($_GET['q']) ? strtolower($_GET['q']) : '';
         
-        $searches = $this->checkCriteria();
+       $this->checkCriteria();
         
         if(isset($_GET['unseen']))  unset($_GET['unseen']);
         
@@ -68,10 +67,7 @@ class EmailReader extends Model
         }
         return $output;
     }*/
-    
-    function printEmails(){
-        require_once('../public/listing/list-mails.php');
-    }
+
 
     public function toggleRead($emailId, $readed){
         if($readed){

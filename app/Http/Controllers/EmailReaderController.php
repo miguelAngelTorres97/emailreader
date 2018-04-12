@@ -9,14 +9,15 @@ use Illuminate\Http\Request;
 
 class EmailReaderController extends Controller
 {
-    //
+
     public function emailReader()
     {
         $reader = new EmailReader();
 
         $unseen = isset($_GET['unseen']);
         $reader->readEmails();
-        $url = $_SERVER['PHP_SELF'] . '/' . ( count($_GET) != 0 ? ('?' . http_build_query($_GET) . '&') : '');
+
+        $url = $_SERVER['PHP_SELF'] . ( count($_GET) != 0 ? ('?' . http_build_query($_GET) . '&') : '?');
 
         $email_list = [];
         $max = (!Config::$maxEmails || Config::$maxEmails == -1) ? count($reader->emails) : Config::$maxEmails;
