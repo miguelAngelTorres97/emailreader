@@ -42,3 +42,12 @@
     background-color: rgb(123, 170, 247) !important;
     color: white !important;
 }
+
+.btn-clear{
+    color: white;
+
+}
+
+.btn-clear:hover{
+    color:lightgray;
+}

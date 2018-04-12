@@ -30,8 +30,7 @@ class Email extends Model
             $encoding = $structure->parts[1]->encoding;
             $this->message = $this->decode($this->message, $encoding);
             
-            //$this->message = $this->to_utf8($this->message);
-            //$this->message = preg_replace('/\s+/', ' ', $this->message);
+
         }else
             $this->message = quoted_printable_decode($this->message);
 

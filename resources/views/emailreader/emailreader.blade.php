@@ -42,6 +42,9 @@
                     </ul>
                     @if(!isset($_GET['hide']))
                     <form class="form-inline ml-auto" method="GET" action="{{$url}}" >
+                        @if(isset($_GET['q']))
+                            <a href="{{ preg_replace('/q=[A-Z0-9a-z]*&*/', '',$url) }}" class="btn-clear"><i class="material-icons">clear</i></a>
+                        @endif
                         <div class="form-group has-white bmd-form-group">
                             <input type="text" name='q' class="form-control" placeholder="Search" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}" >
                         </div>
